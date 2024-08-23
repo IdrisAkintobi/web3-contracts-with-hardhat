@@ -1,0 +1,27 @@
+{
+  "name": "web3-bank",
+  "version": "0.0.1",
+  "description": "A web3 app that implements account creation and asset transfer",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdrisAkintobi/web3-bank.git"
+  },
+  "keywords": [
+    "web3",
+    "Solidity"
+  ],
+  "author": "Idris Akintobi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IdrisAkintobi/web3-bank/issues"
+  },
+  "homepage": "https://github.com/IdrisAkintobi/web3-bank#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.9"
+  }
+}
