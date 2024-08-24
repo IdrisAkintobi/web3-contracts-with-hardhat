@@ -4,8 +4,10 @@
   "description": "A web3 app that implements account creation and asset transfer",
   "main": "main.js",
   "scripts": {
-    "test": "npx hardhat compile && npx hardhat test",
-    "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'"
+    "build": "npm run lint && npx hardhat compile",
+    "test": "npm run build && REPORT_GAS=true npx hardhat test",
+    "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
+    "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify"
   },
   "repository": {
     "type": "git",
