@@ -9,7 +9,7 @@ This project includes a banking smart contract with basic banking:
 
 ---
 
-Contract Address: 0xb3a7652cfBaaBb989cA55E5e680110Be00Af73aA
+Contract Address: 0x2BBA18367A7028fA5544B159C626daf54dcFecC6
 
 ---
 
