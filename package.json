@@ -4,7 +4,8 @@
   "description": "A web3 app that implements account creation and asset transfer",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat compile && npx hardhat test",
+    "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
   "homepage": "https://github.com/IdrisAkintobi/web3-bank#readme",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.9"
+    "hardhat": "^2.22.9",
+    "prettier": "^3.3.3",
+    "prettier-plugin-solidity": "^1.4.1"
   }
 }
