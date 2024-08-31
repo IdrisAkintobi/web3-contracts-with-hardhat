@@ -7,7 +7,10 @@
     "build": "npm run lint && npx hardhat compile",
     "test": "npm run build && REPORT_GAS=true npx hardhat test",
     "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
-    "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify"
+    "deploy": "npm run test && npx hardhat ignition deploy ./ignition/modules/$1.ts --network $2 --verify",
+    "deploy:Bank": "npm run deploy Bank sepolia",
+    "deploy:iDrisToken": "npm run deploy iDrisToken lisk-sepolia",
+    "deploy:StakeIDrisToken": "npm run deploy StakeIDrisToken lisk-sepolia"
   },
   "repository": {
     "type": "git",
@@ -28,5 +31,8 @@
     "hardhat": "^2.22.9",
     "prettier": "^3.3.3",
     "prettier-plugin-solidity": "^1.4.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2"
   }
 }
