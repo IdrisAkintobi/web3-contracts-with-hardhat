@@ -10,7 +10,8 @@
     "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify",
     "deploy:iDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/iDrisToken.ts --network lisk-sepolia --verify",
     "deploy:StakeIDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/StakeIDrisToken.ts --network lisk-sepolia --verify",
-    "script:StakeIDrisToken": "npx hardhat run scripts/StakeIDrisToken.ts --network lisk-sepolia"
+    "script:StakeIDrisToken": "npx hardhat run scripts/StakeIDrisToken.ts --network lisk-sepolia",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
