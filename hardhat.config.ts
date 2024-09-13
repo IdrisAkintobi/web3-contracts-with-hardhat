@@ -17,6 +17,9 @@ const config: HardhatUserConfig = {
       accounts: [DO_NOT_LEAK],
       gasPrice: 1000000000,
     },
+    localhost: {
+      url: "http://127.0.0.1:8545",
+    },
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,

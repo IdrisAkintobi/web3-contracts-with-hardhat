@@ -7,6 +7,7 @@
     "build": "npm run lint && npx hardhat compile",
     "test": "npm run build && REPORT_GAS=true npx hardhat test",
     "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
+    "start:local:node": "npx hardhat node",
     "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify",
     "deploy:iDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/iDrisToken.ts --network lisk-sepolia --verify",
     "deploy:StakeIDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/StakeIDrisToken.ts --network lisk-sepolia --verify",
