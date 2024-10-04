@@ -1,9 +1,9 @@
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import {buildModule} from "@nomicfoundation/hardhat-ignition/modules";
 
 const IDrisTokenModule = buildModule("IDrisTokenModule", (m) => {
-  const iDrisToken = m.contract("IDrisToken");
+    const iDrisToken = m.contract("IDrisToken");
 
-  return { iDrisToken };
+    return {iDrisToken};
 });
 
 module.exports = IDrisTokenModule;
