@@ -1,9 +1,9 @@
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import {buildModule} from "@nomicfoundation/hardhat-ignition/modules";
 
 const BankModule = buildModule("BankModule", (m) => {
-  const bank = m.contract("Bank");
+    const bank = m.contract("Bank");
 
-  return { bank };
+    return {bank};
 });
 
 module.exports = BankModule;

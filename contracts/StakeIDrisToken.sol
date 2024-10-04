@@ -34,11 +34,7 @@ contract StakeIDrisToken {
 
     event StakingSuccessful(address indexed user, uint256 amount, uint8 months);
     event WithdrawalSuccessful(address indexed user, uint256 amount);
-    event TransferSuccessful(
-        address indexed from,
-        address indexed _to,
-        uint256 amount
-    );
+    event TransferSuccessful(address indexed from, address indexed _to, uint256 amount);
 
     constructor(address _tokenAddress) {
         owner = msg.sender;
@@ -60,15 +56,11 @@ contract StakeIDrisToken {
             uint256 currentInterest = calculateAPY(stakerRecord);
             stakerRecord.amountStaked += (_amount + currentInterest);
             stakerRecord.stakedDate = block.timestamp;
-            stakerRecord.withdrawableDate =
-                block.timestamp +
-                (_months * A_MONTH_IN_SECONDS);
+            stakerRecord.withdrawableDate = block.timestamp + (_months * A_MONTH_IN_SECONDS);
         } else {
             stakerRecord.amountStaked = _amount;
             stakerRecord.stakedDate = block.timestamp;
-            stakerRecord.withdrawableDate =
-                block.timestamp +
-                (_months * A_MONTH_IN_SECONDS);
+            stakerRecord.withdrawableDate = block.timestamp + (_months * A_MONTH_IN_SECONDS);
         }
 
         emit StakingSuccessful(msg.sender, stakerRecord.amountStaked, _months);
@@ -90,8 +82,7 @@ contract StakeIDrisToken {
 
         if (stakerRecord.amountStaked == 0) revert NoRecordFound();
 
-        if (stakerRecord.withdrawableDate > block.timestamp)
-            revert AssetIsLocked();
+        if (stakerRecord.withdrawableDate > block.timestamp) revert AssetIsLocked();
 
         uint256 apy = calculateAPY(stakerRecord);
         uint256 totalBalance = stakerRecord.amountStaked + apy;
@@ -103,11 +94,7 @@ contract StakeIDrisToken {
         emit WithdrawalSuccessful(msg.sender, totalBalance);
     }
 
-    function transferStake(
-        address _to,
-        uint256 _amount,
-        uint8 _months
-    ) external {
+    function transferStake(address _to, uint256 _amount, uint8 _months) external {
         if (_to == address(0)) revert CantSendToZeroAddress();
 
         if (_amount <= 0) revert ZeroValueNotAllowed();
@@ -116,8 +103,7 @@ contract StakeIDrisToken {
 
         if (_amount > stakerRecord.amountStaked) revert InsufficientFunds();
 
-        if (records[_to].amountStaked > 0)
-            revert CanNotTransferToExistingStaker();
+        if (records[_to].amountStaked > 0) revert CanNotTransferToExistingStaker();
 
         stakerRecord.amountStaked -= _amount;
         records[_to] = Record(
@@ -145,11 +131,8 @@ contract StakeIDrisToken {
         token.transfer(owner, _amount);
     }
 
-    function calculateAPY(
-        Record memory _record
-    ) private view returns (uint256) {
-        uint256 numberOfMonths = (block.timestamp - _record.stakedDate) /
-            A_MONTH_IN_SECONDS;
+    function calculateAPY(Record memory _record) private view returns (uint256) {
+        uint256 numberOfMonths = (block.timestamp - _record.stakedDate) / A_MONTH_IN_SECONDS;
 
         // If the staking duration is less than a month, return 0
         if (numberOfMonths < 1) {

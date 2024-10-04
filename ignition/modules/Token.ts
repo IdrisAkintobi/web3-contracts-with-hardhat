@@ -1,9 +1,9 @@
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+import {buildModule} from "@nomicfoundation/hardhat-ignition/modules";
 
 const TokenModule = buildModule("TokenModule", (m) => {
-  const token = m.contract("Token");
+    const token = m.contract("Token");
 
-  return { token };
+    return {token};
 });
 
 module.exports = TokenModule;

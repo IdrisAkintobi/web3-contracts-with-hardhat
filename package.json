@@ -1,40 +1,43 @@
 {
-  "name": "web3-bank",
-  "version": "0.0.1",
-  "description": "A web3 app that implements account creation and asset transfer",
-  "main": "main.js",
-  "scripts": {
-    "build": "npm run lint && npx hardhat compile",
-    "test": "npm run build && REPORT_GAS=true npx hardhat test",
-    "lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
-    "start:local:node": "npx hardhat node",
-    "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify",
-    "deploy:iDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/iDrisToken.ts --network lisk-sepolia --verify",
-    "deploy:StakeIDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/StakeIDrisToken.ts --network lisk-sepolia --verify",
-    "script:StakeIDrisToken": "npx hardhat run scripts/StakeIDrisToken.ts --network lisk-sepolia",
-    "prepare": "husky"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IdrisAkintobi/web3-bank.git"
-  },
-  "keywords": [
-    "web3",
-    "Solidity"
-  ],
-  "author": "Idris Akintobi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/IdrisAkintobi/web3-bank/issues"
-  },
-  "homepage": "https://github.com/IdrisAkintobi/web3-bank#readme",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.9",
-    "prettier": "^3.3.3",
-    "prettier-plugin-solidity": "^1.4.1"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^5.0.2"
-  }
+    "name": "web3-bank",
+    "version": "0.0.1",
+    "description": "A web3 app that implements account creation and asset transfer",
+    "main": "main.js",
+    "scripts": {
+        "build": "npm run lint && npx hardhat compile",
+        "test": "npm run build && REPORT_GAS=true npx hardhat test",
+        "lint": "prettier --write --ignore-path .gitignore .",
+        "start:local:node": "npx hardhat node",
+        "deploy:Bank": "npm run test && npx hardhat ignition deploy ./ignition/modules/Bank.ts --network sepolia --verify",
+        "deploy:iDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/iDrisToken.ts --network lisk-sepolia --verify",
+        "deploy:StakeIDrisToken": "npm run test && npx hardhat ignition deploy ./ignition/modules/StakeIDrisToken.ts --network lisk-sepolia --verify",
+        "script:StakeIDrisToken": "npx hardhat run scripts/StakeIDrisToken.ts --network lisk-sepolia",
+        "deploy:token": "npm run test && npx hardhat ignition deploy ./ignition/modules/Web3CXI.ts --network lisk-sepolia --verify",
+        "deploy:contract": "npm run test && npx hardhat ignition deploy ./ignition/modules/SaveERC20.ts --network lisk-sepolia --verify",
+        "script:SaveERC20": "npx hardhat run scripts/SaveERC20.ts --network lisk-sepolia",
+        "prepare": "husky"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IdrisAkintobi/web3-bank.git"
+    },
+    "keywords": [
+        "web3",
+        "Solidity"
+    ],
+    "author": "Idris Akintobi",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/IdrisAkintobi/web3-bank/issues"
+    },
+    "homepage": "https://github.com/IdrisAkintobi/web3-bank#readme",
+    "devDependencies": {
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+        "hardhat": "^2.22.9",
+        "prettier": "^3.3.3",
+        "prettier-plugin-solidity": "^1.4.1"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^5.0.2"
+    }
 }
