@@ -15,7 +15,10 @@
         "deploy:token": "npm run test && npx hardhat ignition deploy ./ignition/modules/Web3CXI.ts --network lisk-sepolia --verify",
         "deploy:contract": "npm run test && npx hardhat ignition deploy ./ignition/modules/SaveERC20.ts --network lisk-sepolia --verify",
         "script:SaveERC20": "npx hardhat run scripts/SaveERC20.ts --network lisk-sepolia",
+        "uniswapV2?": "npx hardhat run ./scripts/uniswap-v2?-script.ts --network localhost",
+        "get-balance": "npx hardhat run ./scripts/get-balance.ts --network lisk-sepolia",
         "uniswapV2": "npx hardhat run ./scripts/uniswap-v2-script.ts --network localhost",
+        "uniswapV3": "npx hardhat run ./scripts/uniswap-v3-script.ts --network localhost",
         "prepare": "husky"
     },
     "repository": {
