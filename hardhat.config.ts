@@ -1,4 +1,5 @@
 import "@nomicfoundation/hardhat-toolbox";
+import {parseUnits} from "ethers";
 import {HardhatUserConfig, vars} from "hardhat/config";
 
 const INFURA_API_KEY = vars.get("INFURA_API_KEY");
@@ -8,6 +9,13 @@ const LISK_RPC_URL = vars.get("LISK_RPC_URL");
 const config: HardhatUserConfig = {
     solidity: "0.8.26",
     networks: {
+        hardhat: {
+            forking: {
+                url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
+                blockNumber: 21072884,
+            },
+            initialBaseFeePerGas: Number(parseUnits("10", "gwei")),
+        },
         sepolia: {
             url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [DO_NOT_LEAK],
